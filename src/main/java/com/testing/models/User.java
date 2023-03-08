@@ -1,19 +1,24 @@
-package com.testing;
+package com.testing.models;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.regex.Pattern;
 
 @Getter
+@Setter
 @Data
 @NoArgsConstructor
 public class User {
 
+    private String name;
+
     private String login;
 
     private String password;
+
+    public User(String name){
+        this.name = name;
+    }
 
     public User(String login, String password){
         if(!Pattern.compile("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
